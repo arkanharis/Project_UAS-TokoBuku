@@ -5,6 +5,9 @@
  *
  * @author widyanurulsukma
  */
+
+package Classes;
+
 public class AlatTulis extends Item{
     private String warna;
     private String merk;
