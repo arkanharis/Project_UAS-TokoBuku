@@ -3,7 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Classes;
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,6 +27,52 @@ public class Toko {
     public Toko(String namaToko) {
         this.namaToko = namaToko;
         this.daftarBarang = new ArrayList<Item>();
+    }
+    
+    public void populateDaftarBarang() {
+        try {
+            FileInputStream file = new FileInputStream("../Databases/stokBarang.dat");
+            ObjectInputStream inputFile = new ObjectInputStream(file);
+            
+            boolean endOfFile = false;
+            
+            while (!endOfFile) {
+                try {
+                    daftarBarang.add((Item) inputFile.readObject());
+                }
+                catch(EOFException e) {
+                    endOfFile = true;
+                }
+                catch(Exception f) {
+                    JOptionPane.showMessageDialog(null, f.getMessage());
+                }
+                
+            }
+            
+            inputFile.close();
+        }
+        catch(IOException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+            
+    }
+    
+    public void saveDaftarBarang() {
+        try {
+            FileOutputStream file2 = new FileOutputStream("../Databases/stokBarang.dat");
+            ObjectOutputStream outputFile = new ObjectOutputStream(file2);
+            
+            for(int i = 0; i < daftarBarang.size(); i++) {
+                outputFile.writeObject(daftarBarang.get(i));
+            }
+            
+            outputFile.close();
+            
+            JOptionPane.showMessageDialog(null, "Daftar Barang Berhasil disimpan!");
+        }
+        catch(IOException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
     }
 
     /**

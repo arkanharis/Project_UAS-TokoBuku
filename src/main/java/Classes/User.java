@@ -29,6 +29,8 @@ public class User {
         this.id = id;
         this.keranjang = new ArrayList<>();
     }
+    
+    // to-do add file io to
 
     /**
      * Mendapatkan nama pengguna.
