@@ -4,6 +4,8 @@
 
 package com.mycompany.project_uas.tokobuku;
 
+import GUI.*;
+
 /**
  *
  * @author arkan
@@ -11,6 +13,6 @@ package com.mycompany.project_uas.tokobuku;
 public class Project_UASTokoBuku {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        new Login().setVisible(true);
     }
 }
