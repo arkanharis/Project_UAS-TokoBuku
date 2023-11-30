@@ -5,7 +5,7 @@ public abstract class Item {
     private int stok;
     private String jenis;
 
-    public Item(double harga, int stok, String jenis) {
+    public Item(String jenis, int stok, double harga) {
         this.harga = harga;
         this.stok = stok;
         this.jenis = jenis;
@@ -36,5 +36,10 @@ public abstract class Item {
     }
 
     public abstract double applyDiskon(double diskon);
+
+    @Override
+    public String toString() {
+        return jenis + "," + stok + "," + harga;
+    }
 }
 

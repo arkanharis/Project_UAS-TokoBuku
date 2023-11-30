@@ -13,6 +13,6 @@ import GUI.*;
 public class Project_UASTokoBuku {
 
     public static void main(String[] args) {
-        new Login().setVisible(true);
+        new Dashboard().setVisible(true);
     }
 }

@@ -4,16 +4,21 @@
  */
 package GUI;
 
+import Classes.Item;
+import Classes.Toko;
+import java.util.ArrayList;
+
 /**
  *
  * @author giant
  */
 public class Dashboard extends javax.swing.JFrame {
-
+    private Toko toko;
     /**
      * Creates new form Keranjang
      */
     public Dashboard() {
+        toko = new Toko();
         initComponents();
     }
 
@@ -33,6 +38,8 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         addToCart = new javax.swing.JButton();
         batal = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -63,12 +70,16 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        jMenu1.setText("File");
-        jMenu1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit.png"))); // NOI18N
+        jList1.setModel(new javax.swing.AbstractListModel<Item>() {
+            ArrayList<Item> items = toko.getDaftarBarang();
+            public int getSize() { return items.size(); }
+            public Item getElementAt(int i) { return items.get(i); }
+        });
+        jScrollPane1.setViewportView(jList1);
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit.png"))); // NOI18N
+        jMenu1.setText("File");
+
         jMenuItem2.setText("Exit");
-        jMenuItem2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit.png"))); // NOI18N
         jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
@@ -87,22 +98,27 @@ public class Dashboard extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(batal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(addToCart)
-                .addGap(32, 32, 32))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(395, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(338, 338, 338))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(batal)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(addToCart)))
+                .addGap(32, 32, 32))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 399, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addToCart)
                     .addComponent(batal))
@@ -160,11 +176,13 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton addToCart;
     private javax.swing.JButton batal;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JList<Item> jList1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextPane jTextPane1;

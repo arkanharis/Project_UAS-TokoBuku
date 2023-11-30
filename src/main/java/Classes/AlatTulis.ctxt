@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=AlatTulis
+comment1.params=harga\ stok\ jenis\ warna\ merk
+comment1.target=AlatTulis(double,\ int,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getWarna()
+comment3.params=warna
+comment3.target=void\ setWarna(java.lang.String)
+comment4.params=
+comment4.target=java.lang.String\ getMerk()
+comment5.params=merk
+comment5.target=void\ setMerk(java.lang.String)
+comment6.params=diskon
+comment6.target=double\ applyDiskon(double)
+comment7.params=
+comment7.target=java.lang.String\ toString()
+comment8.params=args
+comment8.target=void\ main(java.lang.String[])
+numComments=9
