@@ -64,11 +64,8 @@ public class Dashboard extends javax.swing.JFrame {
         });
 
         jMenu1.setText("File");
-        jMenu1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit.png"))); // NOI18N
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit.png"))); // NOI18N
         jMenuItem2.setText("Exit");
-        jMenuItem2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit.png"))); // NOI18N
         jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);

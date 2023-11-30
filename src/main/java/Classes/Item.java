@@ -36,5 +36,10 @@ public abstract class Item {
     }
 
     public abstract double applyDiskon(double diskon);
+
+    @Override
+    public String toString() {
+        return jenis + "  \t" + stok + "   \t" + harga;
+    }
 }
 

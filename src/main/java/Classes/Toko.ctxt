@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Toko
+comment0.text=\n\n\ @author\ Willy\ Jonathan\ Arsyad\n
+comment1.params=
+comment1.target=Toko()
+comment1.text=\n\ Constructor\ untuk\ class\ Toko\n\ @param\ namaToko\ nama\ toko\ alat\ tulis/toko\ buku\n
+comment2.params=
+comment2.target=void\ populateDaftarBarang()
+comment3.params=
+comment3.target=void\ saveDaftarBarang()
+comment4.params=namaToko
+comment4.target=void\ setNamaToko(java.lang.String)
+comment4.text=\n\ Method\ digunakan\ untuk\ mengubah\ nama\ toko\n\ @param\ namaToko\ nama\ toko\ baru\n
+comment5.params=barangYangDijual
+comment5.target=void\ tambahDaftarBarang(Item)
+comment5.text=\n\ Menambahkan\ barang\ yang\ akan\ di\ jual\ ke\ dalam\ array\ list\n\ @param\ barangYangDijual\n
+comment6.params=
+comment6.target=java.lang.String\ getNamaToko()
+comment6.text=\n\ Mengembalikan\ nama\ dari\ toko\n\ @return\ nama\ toko\n
+comment7.params=
+comment7.target=void\ displayDaftarBarang()
+comment7.text=\n\ Menambilkan\ daftar\ barang\ yang\ dijual\ pada\ toko\n\ beserta\ stok\ yang\ tersedia\n
+comment8.params=
+comment8.target=java.util.ArrayList\ getDaftarBarang()
+numComments=9

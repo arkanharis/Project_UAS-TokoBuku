@@ -3,12 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Classes;
-import java.io.EOFException;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.nio.file.Path;
+import java.nio.file.FileSystems;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -17,8 +18,12 @@ import javax.swing.JOptionPane;
  * @author Willy Jonathan Arsyad
  */
 public class Toko {
-    private ArrayList<Item> daftarBarang;
+    private ArrayList<String> daftarBarang;
     private String namaToko; 
+    private final String directory = "../Databases";
+    private final String fileName = "stokBarang";
+    Path filePath = FileSystems.getDefault().getPath(directory, fileName);
+
     
     /**
      * Constructor untuk class Toko
@@ -26,53 +31,78 @@ public class Toko {
      */
     public Toko(String namaToko) {
         this.namaToko = namaToko;
-        this.daftarBarang = new ArrayList<Item>();
+        this.daftarBarang = new ArrayList<>();
     }
     
     public void populateDaftarBarang() {
-        try {
-            FileInputStream file = new FileInputStream("../Databases/stokBarang.dat");
-            ObjectInputStream inputFile = new ObjectInputStream(file);
-            
-            boolean endOfFile = false;
-            
-            while (!endOfFile) {
-                try {
-                    daftarBarang.add((Item) inputFile.readObject());
-                }
-                catch(EOFException e) {
-                    endOfFile = true;
-                }
-                catch(Exception f) {
-                    JOptionPane.showMessageDialog(null, f.getMessage());
-                }
-                
+//        try {
+        try(BufferedReader reader = new BufferedReader(
+                new FileReader(filePath.toString()))) {
+            String line;
+
+            while((line = reader.readLine()) != null) {
+                daftarBarang.add(line);
             }
-            
-            inputFile.close();
         }
-        catch(IOException e) {
+        catch (Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
+//                    
+//            FileInputStream file = new FileInputStream("../Databases/stokBarang.dat");
+//            ObjectInputStream inputFile = new ObjectInputStream(file);
+//            
+//            boolean endOfFile = false;
+//            
+//            while (!endOfFile) {
+//                try {
+//                    daftarBarang.add((Item) inputFile.readObject());
+//                }
+//                catch(EOFException e) {
+//                    endOfFile = true;
+//                }
+//                catch(Exception f) {
+//                    JOptionPane.showMessageDialog(null, f.getMessage());
+//                }
+//                
+//            }
+//            
+//            inputFile.close();
+//        }
+//        catch(IOException e) {
+//            JOptionPane.showMessageDialog(null, e.getMessage());
+//        }
             
     }
     
     public void saveDaftarBarang() {
-        try {
-            FileOutputStream file2 = new FileOutputStream("../Databases/stokBarang.dat");
-            ObjectOutputStream outputFile = new ObjectOutputStream(file2);
+        try (BufferedWriter writer = new BufferedWriter(
+                new FileWriter(filePath.toString()))) {
             
-            for(int i = 0; i < daftarBarang.size(); i++) {
-                outputFile.writeObject(daftarBarang.get(i));
+            for(String line: daftarBarang) {
+                writer.write(line);
+                writer.newLine();
             }
-            
-            outputFile.close();
-            
-            JOptionPane.showMessageDialog(null, "Daftar Barang Berhasil disimpan!");
         }
         catch(IOException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
+   
         }
+        
+//        try {
+//            FileOutputStream file2 = new FileOutputStream("../Databases/stokBarang.dat");
+//            ObjectOutputStream outputFile = new ObjectOutputStream(file2);
+//            
+//            for(int i = 0; i < daftarBarang.size(); i++) {
+//                outputFile.writeObject(daftarBarang.get(i));
+//            }
+//            
+//            outputFile.close();
+//            
+//            JOptionPane.showMessageDialog(null, "Daftar Barang Berhasil disimpan!");
+//        }
+//        catch(IOException e) {
+//            JOptionPane.showMessageDialog(null, e.getMessage());
+//        }
     }
 
     /**
@@ -87,7 +117,7 @@ public class Toko {
      * Menambahkan barang yang akan di jual ke dalam array list
      * @param barangYangDijual
      */
-    public void tambahDaftarBarang(Item barangYangDijual) {
+    public void tambahDaftarBarang(String barangYangDijual) {
         daftarBarang.add(barangYangDijual);
     }
 
@@ -98,18 +128,6 @@ public class Toko {
     public String getNamaToko() {
         return namaToko;
     }
-
-    /**
-     * Menambilkan daftar barang yang dijual pada toko
-     * beserta stok yang tersidia
-     */
-    public void displayDaftarBarang() {
-        System.out.println("Daftar barang dan stok yang tersedia:");
-        for (Item barangYangDijual : daftarBarang) {
-            System.out.println(barangYangDijual.getJenis() + "    \t" + barangYangDijual.getStok());
-        }
-    }
-
 
 
 }
