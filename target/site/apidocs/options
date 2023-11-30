@@ -1,0 +1,24 @@
+-encoding
+'UTF-8'
+-protected
+-source
+'11'
+-sourcepath
+'/home/giant/NetBeansProjects/Project_UAS-TokoBuku/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2023. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/home/giant/NetBeansProjects/Project_UAS-TokoBuku/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Project_UAS-TokoBuku 1.0-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/en/java/javase/11/docs/api' '/home/giant/NetBeansProjects/Project_UAS-TokoBuku/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'Project_UAS-TokoBuku 1.0-SNAPSHOT API'

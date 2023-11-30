@@ -17,16 +17,27 @@ public class Buku extends Item {
     /**
      * Konstruktor untuk kelas Buku.
      * 
-     * @param harga     Harga buku.
-     * @param stok      Jumlah stok buku.
-     * @param jenis     Jenis item.
-     * @param judul     Judul buku.
-     * @param pengarang Pengarang buku.
+     * @param harga         Harga buku.
+     * @param stok          Jumlah stok buku.
+     * @param jenis         Jenis item.
+     * @param judul         Judul buku.
+     * @param pengarang     Pengarang buku.
+     * @param tahunTerbit   Tahun terbit
+     * @param penerbit      Penerbit
+     * @param ISBN          ISBN
+     * @param halaman       Halaman buku
+     * @param genre         Genre buku
      */
-    public Buku(double harga, int stok, String jenis, String judul, String pengarang) {
-        super(harga, stok, jenis);
+    public Buku(String jenis, int stok, double harga, String judul, String pengarang, 
+                int tahunTerbit, String penerbit, int ISBN, int halaman, String genre) {
+        super(jenis, stok, harga);
         this.judul = judul;
         this.pengarang = pengarang;
+        this.tahunTerbit = tahunTerbit;
+        this.penerbit = penerbit;
+        this.ISBN = ISBN;
+        this.halaman = halaman;
+        this.genre = genre;
     }
 
     /**
@@ -166,4 +177,13 @@ public class Buku extends Item {
         double hargaSetelahDiskon = getHarga() - (getHarga() * diskon);
         return hargaSetelahDiskon;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "," + judul + "," + pengarang + "," +
+                tahunTerbit + "," + penerbit + "," + ISBN + "," + 
+                halaman + "," + genre;
+    }
+    
+    
 }
