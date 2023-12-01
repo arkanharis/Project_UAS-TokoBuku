@@ -6,7 +6,10 @@ package GUI;
 
 import Classes.Item;
 import Classes.Toko;
+import java.awt.Component;
 import java.util.ArrayList;
+import javax.swing.DefaultListCellRenderer;
+import javax.swing.JList;
 
 /**
  *
@@ -72,8 +75,25 @@ public class Dashboard extends javax.swing.JFrame {
 
         jList1.setModel(new javax.swing.AbstractListModel<Item>() {
             ArrayList<Item> items = toko.getDaftarBarang();
+
             public int getSize() { return items.size(); }
+
             public Item getElementAt(int i) { return items.get(i); }
+        });
+
+        jList1.setCellRenderer(new DefaultListCellRenderer() {
+            @Override
+            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+
+                // Assuming value is of type Item
+                Item item = (Item) value;
+
+                // Customize the display text
+                setText(String.format("%-60s%-60d%-60.2f", item.getJenis(), item.getStok(), item.getHarga()));
+
+                return this;
+            }
         });
         jScrollPane1.setViewportView(jList1);
 

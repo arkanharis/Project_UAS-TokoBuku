@@ -47,7 +47,7 @@ public class AlatTulis extends Item{
 
     @Override
     public String toString() {
-        return super.toString() + "," + warna + "," + merk;
+        return super.toString();// + "    \t," + warna + "    \t," + merk;
     }
     
     
