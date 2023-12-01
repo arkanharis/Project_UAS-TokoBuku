@@ -37,6 +37,10 @@ public abstract class Item {
 
     public abstract double applyDiskon(double diskon);
 
+    public String getDescBarang() {
+        return jenis + "    \t" + stok + "    \t" + harga;
+    }
+    
     @Override
     public String toString() {
         return jenis + "," + stok + "," + harga;
