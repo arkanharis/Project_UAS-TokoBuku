@@ -10,7 +10,7 @@ public class Buku extends Item {
     private String pengarang;
     private int tahunTerbit;
     private String penerbit;
-    private int ISBN;
+    private long ISBN;
     private int halaman;
     private String genre;
 
@@ -29,7 +29,7 @@ public class Buku extends Item {
      * @param genre         Genre buku
      */
     public Buku(String jenis, int stok, double harga, String judul, String pengarang, 
-                int tahunTerbit, String penerbit, int ISBN, int halaman, String genre) {
+                int tahunTerbit, String penerbit, long ISBN, int halaman, String genre) {
         super(jenis, stok, harga);
         this.judul = judul;
         this.pengarang = pengarang;
@@ -117,7 +117,7 @@ public class Buku extends Item {
      * 
      * @return ISBN buku.
      */
-    public int getISBN() {
+    public long getISBN() {
         return ISBN;
     }
 
@@ -177,12 +177,24 @@ public class Buku extends Item {
         double hargaSetelahDiskon = getHarga() - (getHarga() * diskon);
         return hargaSetelahDiskon;
     }
+    
+    /**
+     * Mengaplikasikan diskon pada harga buku.
+     *
+     * @return Harga buku setelah diskon.
+     */
+    @Override
+    public double applyDiskon() {
+        double diskon = 0.1;
+        return this.applyDiskon(diskon);
+    }
 
     @Override
     public String toString() {
-        return super.toString() + "," + judul + "," + pengarang + "," +
-                tahunTerbit + "," + penerbit + "," + ISBN + "," + 
-                halaman + "," + genre;
+        return String.format("%s,%d,%.2f,%s,%s,%s,%d,%d,%s",
+                             getJenis(), getStok(), getHarga(), getJudul(),
+                             getPengarang(), getPenerbit(), getISBN(),
+                             getHalaman(), getGenre());
     }
     
     
