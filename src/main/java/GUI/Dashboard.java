@@ -77,6 +77,8 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
         jList1.setModel(new javax.swing.AbstractListModel<Item>() {
             ArrayList<Item> items = toko.getDaftarBarang();
 
