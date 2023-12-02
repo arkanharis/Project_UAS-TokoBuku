@@ -180,9 +180,10 @@ public class Buku extends Item {
 
     @Override
     public String toString() {
-        return super.toString() + "," + judul + "," + pengarang + "," +
-                tahunTerbit + "," + penerbit + "," + ISBN + "," + 
-                halaman + "," + genre;
+        return String.format("%s,%d,%.2f,%s,%s,%s,%d,%d,%s",
+                             getJenis(), getStok(), getHarga(), getJudul(),
+                             getPengarang(), getPenerbit(), getISBN(),
+                             getHalaman(), getGenre());
     }
     
     

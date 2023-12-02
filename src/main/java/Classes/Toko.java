@@ -61,6 +61,7 @@ public class Toko {
                     daftarBarang.add(alatTulis);
                 }
             }
+            reader.close();
         }
         catch (Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
@@ -79,9 +80,9 @@ public class Toko {
         }
         catch(IOException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
-   
-        }
         
+        }
+
     }
 
     /**

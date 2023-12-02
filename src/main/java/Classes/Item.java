@@ -38,12 +38,14 @@ public abstract class Item {
     public abstract double applyDiskon(double diskon);
 
     public String getDescBarang() {
-        return jenis + "    \t," + stok + "    \t," + harga;
+        return jenis + "    \t\t\t," + stok + "    \t\t\t," + harga;
     }
     
+    /**
+     * return string formating for item
+     * @return
+     */
     @Override
-    public String toString() {
-        return jenis + "    \t," + stok + "    \t," + harga;
-    }
+    public abstract String toString();
 }
 
