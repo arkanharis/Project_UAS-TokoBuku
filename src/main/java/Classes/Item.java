@@ -36,6 +36,8 @@ public abstract class Item {
     }
 
     public abstract double applyDiskon(double diskon);
+    
+    public abstract double applyDiskon();
 
     public String getDescBarang() {
         return  String.format("%s    \t\t\t %d    \t\t\t %.2f", getJenis(),

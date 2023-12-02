@@ -39,10 +39,26 @@ public class AlatTulis extends Item{
         this.merk = merk;
     }
 
+    /**
+     *
+     * @param diskon
+     * @return
+     */
     @Override
     public double applyDiskon(double diskon) {
         double hargaSetelahDiskon = getHarga() - (getHarga() * diskon);
         return hargaSetelahDiskon;
+    }
+    
+    /**
+     * Mengaplikasikan diskon pada harga buku.
+     *
+     * @return Harga buku setelah diskon.
+     */
+    @Override
+    public double applyDiskon() {
+        double diskon = 0.01;
+        return this.applyDiskon(diskon);
     }
 
     @Override

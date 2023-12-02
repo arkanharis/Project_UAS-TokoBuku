@@ -177,6 +177,17 @@ public class Buku extends Item {
         double hargaSetelahDiskon = getHarga() - (getHarga() * diskon);
         return hargaSetelahDiskon;
     }
+    
+    /**
+     * Mengaplikasikan diskon pada harga buku.
+     *
+     * @return Harga buku setelah diskon.
+     */
+    @Override
+    public double applyDiskon() {
+        double diskon = 0.1;
+        return this.applyDiskon(diskon);
+    }
 
     @Override
     public String toString() {
