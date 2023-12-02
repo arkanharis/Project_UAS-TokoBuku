@@ -10,6 +10,7 @@ import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,11 +18,14 @@ import javax.swing.JList;
  */
 public class Dashboard extends javax.swing.JFrame {
     private Toko toko;
+    private ArrayList<Item> selectedItems; // New variable to hold selected items
+    
     /**
      * Creates new form Keranjang
      */
     public Dashboard() {
         toko = new Toko();
+        selectedItems = new ArrayList<>();
         initComponents();
     }
 
@@ -100,6 +104,11 @@ public class Dashboard extends javax.swing.JFrame {
         jMenu1.setText("File");
 
         jMenuItem2.setText("Exit");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
@@ -107,6 +116,11 @@ public class Dashboard extends javax.swing.JFrame {
         jMenu2.setText("Edit");
 
         jMenuItem1.setText("Keranjang");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem1);
 
         jMenuBar1.add(jMenu2);
@@ -153,8 +167,26 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_batalActionPerformed
 
     private void addToCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToCartActionPerformed
-        // TODO add your handling code here:
+        Item selectedItem = jList1.getSelectedValue();
+
+        // Check if an item is selected
+        if (selectedItem != null) {
+            // Add the selected item to the list
+            selectedItems.add(selectedItem);
+
+             JOptionPane.showMessageDialog(this, "Item added to cart: " + selectedItem.getJenis());
+        } else {
+             JOptionPane.showMessageDialog(this, "Please select an item to add to the cart.");
+        }
     }//GEN-LAST:event_addToCartActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+         new Checkout(selectedItems).setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
