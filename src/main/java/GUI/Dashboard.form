@@ -67,7 +67,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="title" type="java.lang.String" value="Keranjang Belanja"/>
+    <Property name="title" type="java.lang.String" value="Menu Utama"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
@@ -94,8 +94,7 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jScrollPane1" pref="768" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="batal" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="addToCart" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -116,10 +115,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jScrollPane1" pref="363" max="32767" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="addToCart" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="batal" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="addToCart" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -131,23 +127,15 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Liberation Sans" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Main Menu"/>
+        <Property name="text" type="java.lang.String" value="Dashboard"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="addToCart">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Add to Cart"/>
+        <Property name="text" type="java.lang.String" value="Tambah ke Keranjang"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addToCartActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="batal">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Batal"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="batalActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">

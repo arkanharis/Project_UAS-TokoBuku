@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Willy Jonathan Arsyad
+ * @author giant(Willy Jonathan Arsyad)
  */
 public class Toko {
     private ArrayList<Item> daftarBarang;
@@ -44,21 +44,24 @@ public class Toko {
                 String[] tokens = line.split(",");
 
                 if(tokens.length == 10) {
-                    Buku buku = new Buku(tokens[0].trim(), Integer.parseInt(tokens[1]),
-                            Double.parseDouble(tokens[2]), tokens[3].trim(),
-                            tokens[4].trim(), Integer.parseInt(tokens[5]), 
-                            tokens[6].trim(), Integer.parseInt(tokens[7]),
-                    Integer.parseInt(tokens[8]), tokens[9].trim());
+                    Buku buku = new Buku(tokens[0].trim(), Integer.parseInt(tokens[1].trim()),
+                            Double.parseDouble(tokens[2].trim()), tokens[3].trim(),
+                            tokens[4].trim(), Integer.parseInt(tokens[5].trim()), 
+                            tokens[6].trim(), Long.parseLong(tokens[7].trim()),
+                    Integer.parseInt(tokens[8].trim()), tokens[9].trim());
 
                     daftarBarang.add(buku);
                 } 
                 else if (tokens.length == 5) {
                     AlatTulis alatTulis = new AlatTulis(tokens[0].trim(),
-                            Integer.parseInt(tokens[1]),
-                            Double.parseDouble(tokens[2]), tokens[3].trim(),
+                            Integer.parseInt(tokens[1].trim()),
+                            Double.parseDouble(tokens[2].trim()), tokens[3].trim(),
                             tokens[4].trim());
 
                     daftarBarang.add(alatTulis);
+                }
+                else {
+                    System.err.println("Invalid data format: " + line);
                 }
             }
             reader.close();

@@ -1,3 +1,6 @@
-Pulpen,10,2000,Biru,Kenko
-Pensil,20,3000,Hitam,ABC
-Busur,15,5000,Transparan,R1
+Pulpen,33,2000,Biru,Kenko
+Pensil,21,3000,Hitam,ABC
+Busur,45,5000,Transparan,R1
+Buku Fiksi,80,200000,Harry Potter and the Sorcerer's Stone,J.K. Rowling,1997,Scholastic,9780439708180,320,Fantasy
+Buku Non-Fiksi,30,89000,Sapiens: A Brief History of Humankind,Yuval Noah Harari,2014,Harper,9780062316110,464,History
+Buku Horor,50,43000,IT,Stephen King,1986,Viking,9780451169518,1138,Horor

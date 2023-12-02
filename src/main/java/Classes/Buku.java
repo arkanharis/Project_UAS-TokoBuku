@@ -10,7 +10,7 @@ public class Buku extends Item {
     private String pengarang;
     private int tahunTerbit;
     private String penerbit;
-    private int ISBN;
+    private long ISBN;
     private int halaman;
     private String genre;
 
@@ -29,7 +29,7 @@ public class Buku extends Item {
      * @param genre         Genre buku
      */
     public Buku(String jenis, int stok, double harga, String judul, String pengarang, 
-                int tahunTerbit, String penerbit, int ISBN, int halaman, String genre) {
+                int tahunTerbit, String penerbit, long ISBN, int halaman, String genre) {
         super(jenis, stok, harga);
         this.judul = judul;
         this.pengarang = pengarang;
@@ -117,7 +117,7 @@ public class Buku extends Item {
      * 
      * @return ISBN buku.
      */
-    public int getISBN() {
+    public long getISBN() {
         return ISBN;
     }
 

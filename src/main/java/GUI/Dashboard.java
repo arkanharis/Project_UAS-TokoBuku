@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author giant
+ * @author giant(Willy Jonathan Arsyad)
  */
 public class Dashboard extends javax.swing.JFrame {
     private Toko toko;
@@ -46,7 +46,6 @@ public class Dashboard extends javax.swing.JFrame {
         jTextPane1 = new javax.swing.JTextPane();
         jLabel1 = new javax.swing.JLabel();
         addToCart = new javax.swing.JButton();
-        batal = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -60,22 +59,15 @@ public class Dashboard extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTextPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Keranjang Belanja");
+        setTitle("Menu Utama");
 
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-        jLabel1.setText("Main Menu");
+        jLabel1.setText("Dashboard");
 
-        addToCart.setText("Add to Cart");
+        addToCart.setText("Tambah ke Keranjang");
         addToCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addToCartActionPerformed(evt);
-            }
-        });
-
-        batal.setText("Batal");
-        batal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                batalActionPerformed(evt);
             }
         });
 
@@ -148,8 +140,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(batal)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(addToCart)))
                 .addGap(32, 32, 32))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -165,18 +156,12 @@ public class Dashboard extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addToCart)
-                    .addComponent(batal))
+                .addComponent(addToCart)
                 .addGap(23, 23, 23))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_batalActionPerformed
 
     private void addToCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToCartActionPerformed
         Item selectedItem = jList1.getSelectedValue();
@@ -186,9 +171,11 @@ public class Dashboard extends javax.swing.JFrame {
             // Add the selected item to the list
             selectedItems.add(selectedItem);
 
-            JOptionPane.showMessageDialog(this, "Item added to cart: " + selectedItem.getJenis());
+            JOptionPane.showMessageDialog(this, "Barang telah ditambahkan"
+                    + "ke keranjang: " + selectedItem.getJenis());
         } else {
-            JOptionPane.showMessageDialog(this, "Please select an item to add to the cart.");
+            JOptionPane.showMessageDialog(this, "Silahkan pilih "
+                    + "barang untuk dimasukkan keranjang.");
         }
     }//GEN-LAST:event_addToCartActionPerformed
 
@@ -238,7 +225,6 @@ public class Dashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addToCart;
-    private javax.swing.JButton batal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JList<Item> jList1;
     private javax.swing.JMenu jMenu1;

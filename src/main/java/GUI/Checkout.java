@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author giant
+ * @author giant(Willy Jonathan Arsyad)
  */
 public class Checkout extends javax.swing.JFrame {
     ArrayList<Item> keranjangBarang;
@@ -35,6 +35,14 @@ public class Checkout extends javax.swing.JFrame {
             itemsText.append(item.getKeranjangBarang()).append("\n");
         }
         jTextPane1.setText(itemsText.toString());
+    }
+    
+    private double totalHarga() {
+        double sum = 0;
+        for(Item item: keranjangBarang) {
+            sum += item.applyDiskon();
+        }
+        return sum;
     }
 
 
@@ -76,7 +84,7 @@ public class Checkout extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         jLabel1.setText("Pembayaran");
 
-        jLabel2.setText("Total: " );
+        jLabel2.setText("Total harga setelah diskon: " + totalHarga());
 
         jTextPane1.setEditable(false);
         jScrollPane1.setViewportView(jTextPane1);
@@ -124,7 +132,10 @@ public class Checkout extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bayarActionPerformed
-         JOptionPane.showMessageDialog(null, "Pembayaran Berhasil!");
+        for(Item item: keranjangBarang) {
+            item.setStok(item.getStok()-1);
+        }
+        JOptionPane.showMessageDialog(null, "Pembayaran Berhasil!");
     }//GEN-LAST:event_bayarActionPerformed
 
     private void batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batalActionPerformed
