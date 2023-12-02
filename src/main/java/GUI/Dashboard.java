@@ -10,6 +10,7 @@ import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.AbstractListModel;
 import javax.swing.DefaultListCellRenderer;
+import javax.swing.ImageIcon;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 
@@ -110,8 +111,9 @@ public class Dashboard extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jList1);
 
-        jMenu1.setText("File");
+        jMenu1.setText("Program");
 
+        jMenuItem2.setIcon(new ImageIcon("src/main/java/img/exit.png"));
         jMenuItem2.setText("Exit");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,7 +124,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("Belanja");
 
         jMenuItem1.setText("Keranjang");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
