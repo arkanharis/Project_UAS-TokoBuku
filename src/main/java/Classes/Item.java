@@ -38,8 +38,15 @@ public abstract class Item {
     public abstract double applyDiskon(double diskon);
 
     public String getDescBarang() {
-        return jenis + "    \t\t\t" + stok + "    \t\t\t" + harga;
+        return  String.format("%s    \t\t\t %d    \t\t\t %.2f", getJenis(),
+                getStok(), getHarga());
     }
+    
+    public String getKeranjangBarang() {
+        return String.format("%-50s %50.2f", getJenis(), getHarga());
+//        return  String.format("%s    \t\t\t\t\t %.2f", getJenis(), getHarga());
+    }
+
     
     /**
      * return string formating for item

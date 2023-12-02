@@ -8,6 +8,7 @@ import Classes.Item;
 import Classes.Toko;
 import java.awt.Component;
 import java.util.ArrayList;
+import javax.swing.AbstractListModel;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -79,12 +80,18 @@ public class Dashboard extends javax.swing.JFrame {
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        jList1.setModel(new javax.swing.AbstractListModel<Item>() {
+        jList1.setModel(new AbstractListModel<Item>() {
             ArrayList<Item> items = toko.getDaftarBarang();
 
-            public int getSize() { return items.size(); }
+            @Override
+            public int getSize() {
+                return items.size();
+            }
 
-            public Item getElementAt(int i) { return items.get(i); }
+            @Override
+            public Item getElementAt(int index) {
+                return items.get(index);
+            }
         });
 
         jList1.setCellRenderer(new DefaultListCellRenderer() {
@@ -96,7 +103,7 @@ public class Dashboard extends javax.swing.JFrame {
                 Item item = (Item) value;
 
                 // Customize the display text
-                setText(String.format("%-60s%-60d%-60.2f", item.getJenis(), item.getStok(), item.getHarga()));
+                setText(String.format("%-70s%-30d%50.2f", item.getJenis(), item.getStok(), item.getHarga()));
 
                 return this;
             }

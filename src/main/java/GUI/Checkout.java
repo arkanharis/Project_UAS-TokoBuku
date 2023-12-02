@@ -31,7 +31,7 @@ public class Checkout extends javax.swing.JFrame {
     private void displayItems() {
         StringBuilder itemsText = new StringBuilder();
         for (Item item : keranjangBarang) {
-            itemsText.append(item.getDescBarang()).append("\n");
+            itemsText.append(item.getKeranjangBarang()).append("\n");
         }
         jTextPane1.setText(itemsText.toString());
     }
