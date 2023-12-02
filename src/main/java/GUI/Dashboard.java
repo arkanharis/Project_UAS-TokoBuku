@@ -126,6 +126,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         jMenu2.setText("Belanja");
 
+        jMenuItem1.setIcon(new ImageIcon("src/main/java/img/keranjang.png"));
         jMenuItem1.setText("Keranjang");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
