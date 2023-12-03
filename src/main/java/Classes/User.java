@@ -10,7 +10,7 @@ public class User {
     private String nama;
     private String password;
     private double saldo;
-    private int id;
+    private String id;
     private ArrayList<Item> keranjang;
 
     /**
@@ -22,7 +22,7 @@ public class User {
      * @param saldo    Saldo pengguna.
      * @param id       ID pengguna.
      */
-    public User(String nama, String password, double saldo, int id) {
+    public User(String id, String nama, String password, double saldo) {
         this.nama = nama;
         this.password = password;
         this.saldo = saldo;
@@ -89,7 +89,7 @@ public class User {
      *
      * @return ID pengguna.
      */
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -98,7 +98,7 @@ public class User {
      *
      * @param id ID pengguna yang baru.
      */
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
