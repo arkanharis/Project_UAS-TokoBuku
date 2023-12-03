@@ -20,48 +20,44 @@ public class Login extends javax.swing.JFrame {
     private ArrayList<User> users;
     private final String directory = "src/main/java/Databases";
     private final String fileName = "users.txt";
-    Path filePath = FileSystems.getDefault().getPath(directory, fileName);
-
+    private final Path filePath = FileSystems.getDefault().getPath(directory, fileName);
+    private String namaUser;
+    private String passwd;
+    
+    
     /**
      * Creates new form Login
      */
     public Login() {
+        users = new ArrayList<>();
+        this.populateDaftarUser();
         initComponents();
     }
+
+    public boolean checkUser(String nama, String password) {
+        for(User user: users) {
+            if(user.getNama().trim().equals(nama) &&
+                    user.getPassword().trim().equals(password)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     
     public void populateDaftarUser() {
         try(BufferedReader reader = new BufferedReader(
             new FileReader(filePath.toString()))) {
             String line;
 
+
             while((line = reader.readLine()) != null) {
                 String[] tokens = line.split(",");
 
                 User user = new User(tokens[0].trim(), tokens[1].trim(), 
-                        tokens[2].trim(), Double.parseDouble(tokens[3].trim()));
+                        Double.parseDouble(tokens[3].trim()), tokens[2].trim());
                 
                 users.add(user);
-                
-//                if(tokens.length == 10) {
-//                    Buku buku = new Buku(tokens[0].trim(), Integer.parseInt(tokens[1].trim()),
-//                            Double.parseDouble(tokens[2].trim()), tokens[3].trim(),
-//                            tokens[4].trim(), Integer.parseInt(tokens[5].trim()), 
-//                            tokens[6].trim(), Long.parseLong(tokens[7].trim()),
-//                    Integer.parseInt(tokens[8].trim()), tokens[9].trim());
-//
-//                    daftarBarang.add(buku);
-//                } 
-//                else if (tokens.length == 5) {
-//                    AlatTulis alatTulis = new AlatTulis(tokens[0].trim(),
-//                            Integer.parseInt(tokens[1].trim()),
-//                            Double.parseDouble(tokens[2].trim()), tokens[3].trim(),
-//                            tokens[4].trim());
-//
-//                    daftarBarang.add(alatTulis);
-//                }
-//                else {
-//                    System.err.println("Invalid data format: " + line);
-//                }
             }
             reader.close();
         }
@@ -85,7 +81,7 @@ public class Login extends javax.swing.JFrame {
         username = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         login = new javax.swing.JButton();
-        password = new javax.swing.JPasswordField();
+        passwordField = new javax.swing.JPasswordField();
         register = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -145,7 +141,7 @@ public class Login extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(username, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
-                            .addComponent(password))))
+                            .addComponent(passwordField))))
                 .addGap(48, 48, 48))
             .addGroup(layout.createSequentialGroup()
                 .addGap(214, 214, 214)
@@ -163,7 +159,7 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -180,7 +176,25 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_usernameActionPerformed
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        // TODO add your handling code here:
+        namaUser = username.getText().trim();
+        passwd = new String(passwordField.getPassword());
+        
+        if((!(namaUser.equals("")) && !(passwd.equals("")))) {
+            if(this.checkUser(namaUser, passwd)) {
+                new Dashboard().setVisible(true);
+                this.dispose();
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "Username atau Password anda salah!\n"
+                        + "Silahkan coba lagi");
+                passwordField.setText("");
+            }
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Silahkan masukkan Username dan "
+                    + "Password terlebih dulu!");
+        }
+
     }//GEN-LAST:event_loginActionPerformed
 
     private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
@@ -228,7 +242,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JButton login;
-    private javax.swing.JPasswordField password;
+    private javax.swing.JPasswordField passwordField;
     private javax.swing.JButton register;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables

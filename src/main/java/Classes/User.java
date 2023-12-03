@@ -22,7 +22,7 @@ public class User {
      * @param saldo    Saldo pengguna.
      * @param id       ID pengguna.
      */
-    public User(String id, String nama, String password, double saldo) {
+    public User(String nama, String password, double saldo, String id) {
         this.nama = nama;
         this.password = password;
         this.saldo = saldo;
@@ -119,4 +119,11 @@ public class User {
     public void addToKeranjang(Item item) {
         keranjang.add(item);
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s,%s,%.2f,%s", getNama(), getPassword(), this.getSaldo(), getId());
+    }
+    
+    
 }

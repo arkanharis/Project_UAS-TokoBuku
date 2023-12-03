@@ -23,6 +23,8 @@ public class Register extends javax.swing.JFrame {
     private final String directory = "src/main/java/Databases";
     private final String fileName = "users.txt";
     Path filePath = FileSystems.getDefault().getPath(directory, fileName);
+    private String namaUser;
+    private String passwd;
     
     /**
      * Creates new form Register
@@ -43,8 +45,7 @@ public class Register extends javax.swing.JFrame {
             }
         }
         catch(IOException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        
+            JOptionPane.showMessageDialog(null, e.getMessage());        
         }
 
     }
@@ -62,7 +63,7 @@ public class Register extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         username2 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        Password = new javax.swing.JPasswordField();
+        passwordField = new javax.swing.JPasswordField();
         login = new javax.swing.JButton();
         buatAkun = new javax.swing.JButton();
 
@@ -112,7 +113,7 @@ public class Register extends javax.swing.JFrame {
                         .addComponent(jLabel5)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Password)
+                    .addComponent(passwordField)
                     .addComponent(username2)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -134,7 +135,7 @@ public class Register extends javax.swing.JFrame {
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -156,7 +157,20 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_loginActionPerformed
 
     private void buatAkunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buatAkunActionPerformed
-        this.saveDaftarUsers();
+        this.namaUser = username2.getText().trim();
+        this.passwd = new String(passwordField.getPassword());
+        
+        for(User user: users) {
+            if(user.getNama().equals(namaUser) || user.getPassword().equals(passwd)) {
+                JOptionPane.showMessageDialog(null, "Akun yang ingin anda buat telah ada!\n"
+                        + "Silahkan gunakan username lainnya!");
+            }
+            else {
+                this.saveDaftarUsers();
+                JOptionPane.showMessageDialog(null, "Akun Berhasil dibuat!");
+            }
+        }
+        
     }//GEN-LAST:event_buatAkunActionPerformed
 
 //    /**
@@ -195,12 +209,12 @@ public class Register extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPasswordField Password;
     private javax.swing.JButton buatAkun;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JButton login;
+    private javax.swing.JPasswordField passwordField;
     private javax.swing.JTextField username2;
     // End of variables declaration//GEN-END:variables
 }

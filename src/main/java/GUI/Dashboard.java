@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  */
 public class Dashboard extends javax.swing.JFrame {
     private Toko toko;
-    private ArrayList<Item> selectedItems; // New variable to hold selected items
+    private ArrayList<Item> selectedItems;
     
     /**
      * Creates new form Keranjang
