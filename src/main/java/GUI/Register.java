@@ -68,6 +68,7 @@ public class Register extends javax.swing.JFrame {
         buatAkun = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Register");
 
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         jLabel1.setText("Register");
@@ -104,13 +105,16 @@ public class Register extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(204, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(202, 202, 202))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(login)
-                        .addComponent(jLabel5)))
+                    .addComponent(jLabel5)
+                    .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(passwordField)
@@ -119,10 +123,6 @@ public class Register extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(buatAkun)))
                 .addGap(38, 38, 38))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(204, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(202, 202, 202))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,7 +144,8 @@ public class Register extends javax.swing.JFrame {
                 .addGap(30, 30, 30))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(490, 272));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void username2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_username2ActionPerformed
@@ -160,15 +161,19 @@ public class Register extends javax.swing.JFrame {
         this.namaUser = username2.getText().trim();
         this.passwd = new String(passwordField.getPassword());
         
+        int i = 0;
         for(User user: users) {
-            if(user.getNama().equals(namaUser) || user.getPassword().equals(passwd)) {
+            if(user.getNama().equals(namaUser) && user.getPassword().equals(passwd)) {
                 JOptionPane.showMessageDialog(null, "Akun yang ingin anda buat telah ada!\n"
                         + "Silahkan gunakan username lainnya!");
             }
-            else {
+            else {                
+                users.add(new User(namaUser, passwd, 0, Integer.toString(i)));
+                
                 this.saveDaftarUsers();
                 JOptionPane.showMessageDialog(null, "Akun Berhasil dibuat!");
             }
+            i++;
         }
         
     }//GEN-LAST:event_buatAkunActionPerformed

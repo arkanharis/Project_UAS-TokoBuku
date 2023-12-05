@@ -122,7 +122,8 @@ public class User {
 
     @Override
     public String toString() {
-        return String.format("%s,%s,%.2f,%s", getNama(), getPassword(), this.getSaldo(), getId());
+        return String.format("%s,%s,%.2f,%s", getNama(),
+                getPassword(), this.getSaldo(), getId());
     }
     
     
