@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"Classes"},{"l":"com.mycompany.project_uas.tokobuku"},{"l":"GUI"}];updateSearchResults();
