@@ -7,8 +7,8 @@ package GUI;
 import Classes.User;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.nio.file.FileSystems;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -18,9 +18,10 @@ import javax.swing.JOptionPane;
  */
 public class Login extends javax.swing.JFrame {
     private ArrayList<User> users;
-    private final String directory = "src/main/java/Databases";
-    private final String fileName = "users.txt";
-    private final Path filePath = FileSystems.getDefault().getPath(directory, fileName);
+//    private final String directory = "src/main/java/Databases";
+//    private final String fileName = "users.txt";
+    private final Path usersPath = Paths.get("src", "main", "java", "Databases", "users.txt");
+//    private final Path filePath = FileSystems.getDefault().getPath(directory, fileName);
     private String namaUser;
     private String passwd;
     
@@ -47,7 +48,7 @@ public class Login extends javax.swing.JFrame {
     
     public void populateDaftarUser() {
         try(BufferedReader reader = new BufferedReader(
-            new FileReader(filePath.toString()))) {
+            new FileReader(usersPath.toString()))) {
             String line;
 
 

@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.FileSystems;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -20,9 +21,11 @@ import javax.swing.JOptionPane;
 public class Toko {
     private ArrayList<Item> daftarBarang;
     private String namaToko; 
-    private final String directory = "src/main/java/Databases";
-    private final String fileName = "stokBarang.txt";
-    Path filePath = FileSystems.getDefault().getPath(directory, fileName);
+    private final Path stokBarangPath = Paths.get("src", "main", "java", "Databases", "stokBarang.txt");
+
+//    private final String directory = "src/main/java/Databases";
+//    private final String fileName = "stokBarang.txt";
+//    Path filePath = FileSystems.getDefault().getPath(directory, fileName);
     
     
     /**
@@ -37,7 +40,7 @@ public class Toko {
     
     public void populateDaftarBarang() {
         try(BufferedReader reader = new BufferedReader(
-            new FileReader(filePath.toString()))) {
+            new FileReader(stokBarangPath.toString()))) {
             String line;
 
             while((line = reader.readLine()) != null) {
@@ -74,7 +77,7 @@ public class Toko {
     
     public void saveDaftarBarang() {
         try (BufferedWriter writer = new BufferedWriter(
-            new FileWriter(filePath.toString()))) {
+            new FileWriter(stokBarangPath.toString()))) {
             
             for(Item line: daftarBarang) {
                 writer.write(line.toString());

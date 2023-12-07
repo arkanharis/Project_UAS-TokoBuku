@@ -4,13 +4,12 @@
  */
 package GUI;
 
-import Classes.Item;
 import Classes.User;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.FileSystems;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -20,9 +19,10 @@ import javax.swing.JOptionPane;
  */
 public class Register extends javax.swing.JFrame {
     private ArrayList<User> users;
-    private final String directory = "src/main/java/Databases";
-    private final String fileName = "users.txt";
-    Path filePath = FileSystems.getDefault().getPath(directory, fileName);
+//    private final String directory = "src/main/java/Databases";
+    private final Path usersPath = Paths.get("src", "main", "java", "Databases", "users.txt");
+//    private final String fileName = "users.txt";
+//    Path filePath = FileSystems.getDefault().getPath(directory, fileName);
     private String namaUser;
     private String passwd;
     
@@ -37,7 +37,7 @@ public class Register extends javax.swing.JFrame {
     
     public void saveDaftarUsers() {
         try (BufferedWriter writer = new BufferedWriter(
-            new FileWriter(filePath.toString()))) {
+            new FileWriter(usersPath.toString()))) {
             
             for(User line: users) {
                 writer.write(line.toString());
