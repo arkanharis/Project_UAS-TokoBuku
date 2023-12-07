@@ -21,7 +21,7 @@ Pengguna memiliki opsi untuk membuat akun atau login. Fitur ini memungkinkan pen
 1. **Clone Repositori:**
    ```bash
    git clone https://github.com/arkanharis/Project_UAS-TokoBuku.git
-2. **Run jar file:**
+2. **Run jar file:**  
   Pada folder 'target' jalankan
    ```bash
    java -jar target/Project_UAS-TokoBuku-1.0-SNAPSHOT.jar 
