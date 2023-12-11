@@ -22,7 +22,15 @@ Pengguna memiliki opsi untuk membuat akun atau login. Fitur ini memungkinkan pen
    ```bash
    git clone https://github.com/arkanharis/Project_UAS-TokoBuku.git
 2. **Run jar file:**  
-  Pada folder 'target' jalankan
+   Pada folder 'target' jalankan
    ```bash
    java -jar target/Project_UAS-TokoBuku-1.0-SNAPSHOT.jar 
    
+## Kontributor Repositori
+   Kelompok 7 Praktikum PBO B:
+1. Willy Jonathan Arsyad (2208107010037)
+2. M. Arkan Haris (2208107010022)
+3. Widya Nurul Sukma (2208107010054)
+4. Fadli Ahmad Yazid (2208107010032)
+5. Andika Pebriansyah (2208107010058)
+6. Sa' Baniatun Astia (230620032211103057)
