@@ -26,7 +26,7 @@ Pengguna memiliki opsi untuk membuat akun atau login. Fitur ini memungkinkan pen
    ```bash
    java -jar target/Project_UAS-TokoBuku-1.0-SNAPSHOT.jar 
    
-## Kontributor Repository  
+## Kontributor Repositori
    Kelompok 7 Praktikum PBO B:
 1. Willy Jonathan Arsyad (2208107010037)
 2. M. Arkan Haris (2208107010022)
